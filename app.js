@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config()
 const cookieParser = require('cookie-parser');
 const db_connect = require('./src/db/connection');
+const userRouter = require('./src/routes/userRoute');
 const debug = require('debug')('app')
 
 
@@ -10,6 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 db_connect()
+app.use('/user', userRouter)
 
 
 app.get('/', () => console.log(`Main page`))
