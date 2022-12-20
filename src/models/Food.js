@@ -10,10 +10,9 @@ const foodSchema = new mongoose.Schema({
 
     type: {
         type: String,
-        unique: true,
         required: true
     },
-})
+}, { timestamps: true })
 
 const Food = mongoose.model('Food', foodSchema)
 module.exports = Food
